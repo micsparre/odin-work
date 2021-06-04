@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fizzbuzz</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <p>Input your FizzBuzz number</p>
+  <input type="text" id="input1" />
+  <button onclick="fizzbuzz()">Enter</button>
+  <script>
+   function fizzbuzz(){
+      let num = document.getElementById('input1').value;
+      if (isNaN(num)) {
+          // alert("pls input a number");
+          document.getElementById('t').textContent = "pls input a number";
+      } else {
+          let fzb = "";
+          for (i = 1; i <= num; i++) {
+              let divThree = i % 3 == 0;
+              let divFive = i % 5 == 0;
+              let useNum = !(divThree || divFive);
+              if (divThree) {
+                  fzb += "Fizz";
+              }
+              if (divFive) {
+                  fzb += "Buzz";
+              }
+              if (useNum) {
+                  fzb += i.toString();
+              }
+              fzb += "\n"
+          }
+          document.getElementById('t').textContent = fzb;
+      }
+   }
+  </script>
+  <p style="white-space: pre-wrap" id="t"></p>
+</body>
+</html>
